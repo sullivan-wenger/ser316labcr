@@ -1,3 +1,11 @@
+/*
+  File:	ServerSolution.java
+  Author: Revised by Matthew Corless and Sullivan Wenger.
+  Date:	2/20/2017
+  
+  Description: Server Solution implements the AccountServer interface. It acts as a server full of accounts
+  for the Banking project.
+*/
 package banking.primitive.core;
 
 import java.util.ArrayList;
