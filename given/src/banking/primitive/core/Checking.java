@@ -9,10 +9,21 @@ public class Checking extends Account {
 		super(name);
 	}
 
+    /**
+    * Constructor with name and default value 0
+    *
+    *@param name the name on the checking account
+    */
     public static Checking createChecking(String name) {
         return new Checking(name);
     }
 
+	/**
+	* Constructor that takes a name and initial balance
+	*
+	* @param name the name on the account
+	*	balance the initial balance of the account
+	*/
 	public Checking(String name, float balance) {
 		super(name, balance);
 	}
@@ -53,8 +64,18 @@ public class Checking extends Account {
 		return false;
 	}
 
+	/**
+	* Tells which type of account
+	* The analogous methods on savings returns "Savings"
+	*
+	*@return the string "Checking"
+	*/
 	public String getType() { return "Checking"; }
 	
+	/**
+	* A human comprehensible representation of the account.
+	* @return a string that fits the regex /Checking: .*: \d+\.\d+/
+	*/
 	public String toString() {
 		return "Checking: " + getName() + ": " + getBalance();
 	}
