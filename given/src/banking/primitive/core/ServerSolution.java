@@ -8,6 +8,11 @@ import java.io.*;
 
 import banking.primitive.core.Account.State;
 
+/**
+* Implementation of AccountServer.
+* Stores a set of checking and savings accounts.
+* Reads a file for initial information on startup.
+*/
 class ServerSolution implements AccountServer {
 
 	static String fileName = "accounts.ser";
