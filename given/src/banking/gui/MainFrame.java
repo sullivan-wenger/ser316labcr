@@ -1,3 +1,7 @@
+/**
+* Creates a nice UI from the primitive.core side of the class.
+*/
+
 package banking.gui;
 
 import banking.primitive.core.Account;
