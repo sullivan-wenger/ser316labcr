@@ -71,6 +71,11 @@ class ServerSolution implements AccountServer {
 	public boolean newAccount(String type, String name, float balance) 
 		throws IllegalArgumentException {
 		
+		if (name.equals(getAccount(name).getName()))
+		{
+			throw new IllegalArgumentException("New account may not be started with a negative balance");
+		}
+		
 		if (balance < 0.0f) throw new IllegalArgumentException("New account may not be started with a negative balance");
 		
 		return newAccountFactory(type, name, balance);
