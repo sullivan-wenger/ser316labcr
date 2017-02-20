@@ -112,7 +112,8 @@ class MainFrame extends JFrame {
 			List<Account> accounts = null;
 			if (e.getSource() == displayAccountsButton) {
 				accounts = myServer.getActiveAccounts();
-			} else {
+			} 
+			else {
 				accounts = myServer.getAllAccounts();
 			}
 			StringBuffer sb = new StringBuffer();
@@ -135,7 +136,8 @@ class MainFrame extends JFrame {
 
 			if (myServer.newAccount(type, name, Float.parseFloat(balance))) {
 				JOptionPane.showMessageDialog(null, "Account created successfully");
-			} else {
+			} 
+			else {
 				JOptionPane.showMessageDialog(null, "Account not created!");
 			}
 		}
@@ -147,7 +149,8 @@ class MainFrame extends JFrame {
 			try {
 				myServer.saveAccounts();
 				JOptionPane.showMessageDialog(null, "Accounts saved");
-			} catch (IOException exc) {
+			} 
+			catch (IOException exc) {
 				JOptionPane.showMessageDialog(null, "Error saving accounts");
 			}
 		}
@@ -161,7 +164,8 @@ class MainFrame extends JFrame {
 			Account acc = myServer.getAccount(name);
 			if (acc != null && acc.deposit(Float.parseFloat(balance))) {
 				JOptionPane.showMessageDialog(null, "Deposit successful");
-			} else {
+			} 
+			else {
 				JOptionPane.showMessageDialog(null, "Deposit unsuccessful");
 			}		
 		}
@@ -174,7 +178,8 @@ class MainFrame extends JFrame {
 			Account acc = myServer.getAccount(name);
 			if (acc != null && acc.withdraw(Float.parseFloat(balance))) {
 				JOptionPane.showMessageDialog(null, "Withdrawal successful");
-			} else {
+			} 
+			else {
 				JOptionPane.showMessageDialog(null, "Withdrawal unsuccessful");
 			}		
 		}
