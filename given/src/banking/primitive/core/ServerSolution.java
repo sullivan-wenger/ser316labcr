@@ -14,6 +14,10 @@ class ServerSolution implements AccountServer {
 
 	Map<String,Account> accountMap = null;
 
+	/**
+	* Reads the initial values from an input file.
+	* Sets up map for use to store account.
+	*/
 	public ServerSolution() {
 		accountMap = new HashMap<String,Account>();
 		File file = new File(fileName);
@@ -68,6 +72,14 @@ class ServerSolution implements AccountServer {
 		return true;
 	}
 
+	/**
+	* Creates a new account.
+	*
+	* @param type the type of account, fits the regex /Checking|Savings/
+	*	name the name on the account
+	*	balance the initial balance of the account
+	* @return true if account is successfully created, false if creation fails.
+	*/
 	public boolean newAccount(String type, String name, float balance) 
 		throws IllegalArgumentException {
 		
@@ -76,6 +88,12 @@ class ServerSolution implements AccountServer {
 		return newAccountFactory(type, name, balance);
 	}
 	
+	/**
+	* Closes an account
+	*
+	* @param name the name of the acccount to be closed
+	* @return true if close is successful, false otherwise
+	*/
 	public boolean closeAccount(String name) {
 		Account acc = accountMap.get(name);
 		if (acc == null) {
@@ -85,14 +103,27 @@ class ServerSolution implements AccountServer {
 		return true;
 	}
 
+	/**
+	* Get an account by the name
+	* @param the name of the account
+	* @return the account associated with that name, null if it doesn't exist
+	*/
 	public Account getAccount(String name) {
 		return accountMap.get(name);
 	}
 
+	/**
+	* Get all accounts in an ArrayList
+	* @return an ArrayList which contains all account object references
+	*/
 	public List<Account> getAllAccounts() {
 		return new ArrayList<Account>(accountMap.values());
 	}
 
+	/**
+	* Get only the active accounts (those for which the value of "state" is not "CLOSED")
+	* @return an ArrayList which contains all non-closed accounts
+	*/
 	public List<Account> getActiveAccounts() {
 		List<Account> result = new ArrayList<Account>();
 
@@ -104,6 +135,10 @@ class ServerSolution implements AccountServer {
 		return result;
 	}
 	
+	/**
+	* Save all account information to a file.
+	* This information to be used next time the program is run.
+	*/
 	public void saveAccounts() throws IOException {
 		ObjectOutputStream out = null; 
 		try {
