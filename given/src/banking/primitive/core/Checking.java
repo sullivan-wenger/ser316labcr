@@ -1,5 +1,8 @@
 package banking.primitive.core;
 
+/**
+* Implementation of checking account.
+*/
 public class Checking extends Account {
 
 	private static final long serialVersionUID = 11L;
