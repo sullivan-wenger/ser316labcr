@@ -1,3 +1,8 @@
+/**
+* The class of all bank accounts.
+* Can be checking or savings.
+*/
+
 package banking.primitive.core;
 
 public abstract class Account implements java.io.Serializable {
