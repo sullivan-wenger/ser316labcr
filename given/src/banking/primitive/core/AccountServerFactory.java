@@ -1,3 +1,7 @@
+/**
+* Singleton class that creates an account server.
+*/
+
 package banking.primitive.core;
 
 
