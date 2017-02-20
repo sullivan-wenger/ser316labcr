@@ -68,7 +68,12 @@ public abstract class Account implements java.io.Serializable {
     protected final void setState(State s) {
         state = s;
     }
-
+    
+    /**
+    * Describes the account in a human comprehensible way.
+    * 
+    * @return a string that matches the regex /Account .* has \$\d+\.\d+and is (OPEN|CLOSED|OVERDRAWN)/
+    */
     public String toString() {
         return "Account " + name + " has $" + balance + "and is " + getState()
                 + "\n";
