@@ -1,3 +1,7 @@
+/**
+* Implementation of one type of bank account: Savings
+*/
+
 package banking.primitive.core;
 
 public class Savings extends Account {
