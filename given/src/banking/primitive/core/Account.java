@@ -34,7 +34,12 @@ public abstract class Account implements java.io.Serializable {
     public final float getBalance() {
         return balance;
     }
-
+    
+    public String toString() {
+        return "Account " + name + " has $" + balance + "and is " + getState()
+                + "\n";
+    }
+    
     /**
      * Adds money to an account. May not be done if the account is CLOSED
      * 
@@ -67,10 +72,5 @@ public abstract class Account implements java.io.Serializable {
 
     protected final void setState(State s) {
         state = s;
-    }
-
-    public String toString() {
-        return "Account " + name + " has $" + balance + "and is " + getState()
-                + "\n";
     }
 }
