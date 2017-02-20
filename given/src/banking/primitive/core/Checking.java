@@ -9,9 +9,9 @@ public class Checking extends Account {
 		super(name);
 	}
 
-    public static Checking createChecking(String name) {
-        return new Checking(name);
-    }
+        public static Checking createChecking(String name) {
+            return new Checking(name);
+        }
 
 	public Checking(String name, float balance) {
 		super(name, balance);
