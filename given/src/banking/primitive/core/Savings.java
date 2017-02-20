@@ -1,5 +1,11 @@
 package banking.primitive.core;
 
+/**
+	Class: Savings.java
+	
+	Description: Extends Account Class. Implements methods from the abstract class Account.java. Savings.java
+	should deal with all accounts that are of type "Savings".
+*/
 public class Savings extends Account {
 	private static final long serialVersionUID = 111L;
 	private int numWithdraws = 0;
@@ -12,6 +18,11 @@ public class Savings extends Account {
 		super(name, balance);
 	}
 
+	public String getType() 
+	{ 
+		return "Checking"; 
+	}
+	
 	/**
 	 * A deposit comes with a fee of 50 cents per deposit
 	 */
@@ -33,8 +44,9 @@ public class Savings extends Account {
 		if (getState() == State.OPEN && amount > 0.0f) {
 			balance = balance - amount;
 			numWithdraws++;
-			if (numWithdraws > 3)
+			if (numWithdraws > 3) {
 				balance = balance - 1.0f;
+			}
 			// KG BVA: should be < 0
 			if (balance <= 0.0f) {
 				setState(State.OVERDRAWN);
@@ -43,8 +55,6 @@ public class Savings extends Account {
 		}
 		return false;
 	}
-	
-	public String getType() { return "Checking"; }
 
 	public String toString() {
 		return "Savings: " + getName() + ": " + getBalance();
