@@ -15,8 +15,14 @@ class ServerSolution implements AccountServer {
 	Map<String,Account> accountMap = null;
 
 	/**
-	* Reads the initial values from an input file.
-	* Sets up map for use to store account.
+	* Method: ServerSolution constructor
+	*
+	* @param N/A
+	* @return N/A
+	*
+	* Description: 
+	*	Reads the initial values from an input file.
+	*	Sets up map for use to store account.
 	*/
 	public ServerSolution() {
 		accountMap = new HashMap<String,Account>();
@@ -73,12 +79,14 @@ class ServerSolution implements AccountServer {
 	}
 
 	/**
-	* Creates a new account.
+	* Method: newAccount
 	*
 	* @param type the type of account, fits the regex /Checking|Savings/
 	*	name the name on the account
 	*	balance the initial balance of the account
 	* @return true if account is successfully created, false if creation fails.
+	* 
+	* Description: Creates a new account
 	*/
 	public boolean newAccount(String type, String name, float balance) 
 		throws IllegalArgumentException {
@@ -89,10 +97,12 @@ class ServerSolution implements AccountServer {
 	}
 	
 	/**
-	* Closes an account
+	* Method: closeAccount
 	*
 	* @param name the name of the acccount to be closed
 	* @return true if close is successful, false otherwise
+	*
+	* Description: Closes an account
 	*/
 	public boolean closeAccount(String name) {
 		Account acc = accountMap.get(name);
@@ -104,25 +114,36 @@ class ServerSolution implements AccountServer {
 	}
 
 	/**
-	* Get an account by the name
+	* Method: getAccount
+	* 
 	* @param the name of the account
 	* @return the account associated with that name, null if it doesn't exist
+	* 
+	* Description: Get an account by the name
 	*/
 	public Account getAccount(String name) {
 		return accountMap.get(name);
 	}
 
 	/**
-	* Get all accounts in an ArrayList
+	* Method: getAllAccounts
+	* 
+	* @param N/A
 	* @return an ArrayList which contains all account object references
+	* 
+	* Description: Get all accounts in an ArrayList
 	*/
 	public List<Account> getAllAccounts() {
 		return new ArrayList<Account>(accountMap.values());
 	}
 
 	/**
-	* Get only the active accounts (those for which the value of "state" is not "CLOSED")
+	* Method: getActiveAccounts
+	* 
+	* @param N/A
 	* @return an ArrayList which contains all non-closed accounts
+	* 
+	* Description: Get only the active accounts (those for which the value of "state" is not "CLOSED")
 	*/
 	public List<Account> getActiveAccounts() {
 		List<Account> result = new ArrayList<Account>();
@@ -136,8 +157,15 @@ class ServerSolution implements AccountServer {
 	}
 	
 	/**
-	* Save all account information to a file.
-	* This information to be used next time the program is run.
+	* Method: saveAccounts
+	* 
+	* @param N/A
+	* @return N/A
+	* @throws IOException
+	* 
+	* Description:
+	* 	Save all account information to a file.
+	* 	This information to be used next time the program is run.
 	*/
 	public void saveAccounts() throws IOException {
 		ObjectOutputStream out = null; 
