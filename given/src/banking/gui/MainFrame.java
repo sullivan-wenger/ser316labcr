@@ -39,7 +39,8 @@ class MainFrame extends JFrame {
 			fis =  new FileInputStream(propertyFile);
 			props.load(fis);
 			fis.close();
-		} catch (IOException ioe) {
+		} 
+		catch (IOException ioe) {
 			ioe.printStackTrace();
 			throw ioe;
 		}
