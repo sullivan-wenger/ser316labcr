@@ -24,11 +24,13 @@ class ServerSolution implements AccountServer {
 	Map<String,Account> accountMap = null;
 
 	/**
-	  Method: Default Constructor
-	  Inputs: N/A
-	  Returns: N/A
-
-	  Description: SeverSolution() creates a new map of accounts using the contents of accounts.ser
+	* Method: ServerSolution constructor
+	*
+	* @param N/A
+	* @return N/A
+	*
+  *
+	* Description: SeverSolution() creates a new map of accounts using the contents of accounts.ser
 	*/
 	public ServerSolution() {
 		accountMap = new HashMap<String,Account>();
@@ -94,12 +96,16 @@ class ServerSolution implements AccountServer {
 	}
 
 	/**
-	  Method: newAccount
-	  Inputs: type of account, name of the account, starting balance of account
-	  Returns: boolean. Returns true if a new account was made and false if a new account was not made.
-
-	  Description: newAccount creates a new account based on the inputs. If the account is negative then it will
-	  return an IllegalArgumentException. Returns true if a new account is made.
+	* Method: newAccount
+	*
+	* @param type the type of account, fits the regex /Checking|Savings/
+	*	name the name on the account
+	*	balance the initial balance of the account
+	* @return true if account is successfully created, false if creation fails.
+	* 
+  *
+	* Description: newAccount creates a new account based on the inputs. If the account is negative then it will
+	* return an IllegalArgumentException. Returns true if a new account is made.
 	*/
 	public boolean newAccount(String type, String name, float balance) 
 		throws IllegalArgumentException {
@@ -116,12 +122,13 @@ class ServerSolution implements AccountServer {
 	}
 	
 	/**
-	  Method: closeAccount
-	  Inputs: name of account
-	  Returns: boolean. Returns true if the account was closed and false if the account was not found.
-
-	  Description: Gets the account from accountMap and sets the account to closed. Returns true if account was
-	  set to closed. Returns false if account was not found.
+	* Method: closeAccount
+	*
+	* @param name the name of the acccount to be closed
+	* @return true if close is successful, false otherwise
+	*
+	* Description: Gets the account from accountMap and sets the account to closed. Returns true if account was
+	* set to closed. Returns false if account was not found.
 	*/
 	public boolean closeAccount(String name) {
 		Account acc = accountMap.get(name);
@@ -132,14 +139,39 @@ class ServerSolution implements AccountServer {
 		return true;
 	}
 
+	/**
+	* Method: getAccount
+	* 
+	* @param the name of the account
+	* @return the account associated with that name, null if it doesn't exist
+	* 
+	* Description: Get an account by the name
+	*/
 	public Account getAccount(String name) {
 		return accountMap.get(name);
 	}
 
+	/**
+	* Method: getAllAccounts
+	* 
+	* @param N/A
+	* @return an ArrayList which contains all account object references
+	* 
+	* Description: Get all accounts in an ArrayList
+	*/
 	public List<Account> getAllAccounts() {
 		return new ArrayList<Account>(accountMap.values());
 	}
-	
+
+	/**
+	* Method: getActiveAccounts
+	* 
+	* @param N/A
+	* @return an ArrayList which contains all non-closed accounts
+	* 
+	* Description: Get only the active accounts (those for which the value of "state" is not "CLOSED")
+	*/
+
 	public List<Account> getActiveAccounts() {
 		List<Account> result = new ArrayList<Account>();
 
@@ -152,11 +184,15 @@ class ServerSolution implements AccountServer {
 	}
 	
 	/**
-	  Method: saveAccounts
-	  Inputs: N/A
-	  Returns: N/A
-
-	  Description: Saves accounts currently in accountMap to accounts.ser
+	* Method: saveAccounts
+	* 
+	* @param N/A
+	* @return N/A
+	* @throws IOException
+	* 
+	* Description:
+	* 	Save all account information in accountMap to accounts.ser.
+	* 	This information to be used next time the program is run.
 	*/
 	public void saveAccounts() throws IOException {
 		ObjectOutputStream out = null; 
