@@ -102,12 +102,14 @@ public abstract class Account implements java.io.Serializable {
     protected final void setState(State s) {
         state = s;
     }
-
-    private static final long serialVersionUID = 1L;
-
-    private enum State {
+    
+    protected  enum State {
         OPEN, CLOSED, OVERDRAWN
     };
+    
+    private static final long serialVersionUID = 1L;
+
+
 
     private float balance = 0.0F;
     private String name;
