@@ -11,6 +11,11 @@ import java.awt.Container;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+	Class: MainFrame.java
+	
+	Description: Creates and handles GUI for Banking Project.
+*/
 @SuppressWarnings("serial")
 class MainFrame extends JFrame {
 
@@ -23,6 +28,14 @@ class MainFrame extends JFrame {
 	  the propertyFile in the command line argument.
 	*/
 
+	/**
+	  Method: Constructor for MainFrame.java
+	  Inputs: propertyFile: string of file used in command line argument.
+	  Returns: N/A
+
+	  Description: Main frame creates the GUI portion of the project. The initial server is created with
+	  the propertyFile in the command line argument.
+	*/
 	public MainFrame(String propertyFile) throws IOException {
 
 		//** initialize myServer
