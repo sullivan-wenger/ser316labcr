@@ -18,6 +18,18 @@ import banking.primitive.core.Account.State;
 
 class ServerSolution implements AccountServer {
 
+
+	static String fileName = "accounts.ser";
+
+	Map<String,Account> accountMap = null;
+
+	/**
+	  Method: Default Constructor
+	  Inputs: N/A
+	  Returns: N/A
+
+	  Description: SeverSolution() creates a new map of accounts using the contents of accounts.ser
+	*/
 	public ServerSolution() {
 		accountMap = new HashMap<String,Account>();
 		File file = new File(fileName);
@@ -81,6 +93,14 @@ class ServerSolution implements AccountServer {
 		return true;
 	}
 
+	/**
+	  Method: newAccount
+	  Inputs: type of account, name of the account, starting balance of account
+	  Returns: boolean. Returns true if a new account was made and false if a new account was not made.
+
+	  Description: newAccount creates a new account based on the inputs. If the account is negative then it will
+	  return an IllegalArgumentException. Returns true if a new account is made.
+	*/
 	public boolean newAccount(String type, String name, float balance) 
 		throws IllegalArgumentException {
 		
@@ -95,6 +115,14 @@ class ServerSolution implements AccountServer {
 		return newAccountFactory(type, name, balance);
 	}
 	
+	/**
+	  Method: closeAccount
+	  Inputs: name of account
+	  Returns: boolean. Returns true if the account was closed and false if the account was not found.
+
+	  Description: Gets the account from accountMap and sets the account to closed. Returns true if account was
+	  set to closed. Returns false if account was not found.
+	*/
 	public boolean closeAccount(String name) {
 		Account acc = accountMap.get(name);
 		if (acc == null) {
@@ -111,7 +139,7 @@ class ServerSolution implements AccountServer {
 	public List<Account> getAllAccounts() {
 		return new ArrayList<Account>(accountMap.values());
 	}
-
+	
 	public List<Account> getActiveAccounts() {
 		List<Account> result = new ArrayList<Account>();
 
@@ -123,6 +151,13 @@ class ServerSolution implements AccountServer {
 		return result;
 	}
 	
+	/**
+	  Method: saveAccounts
+	  Inputs: N/A
+	  Returns: N/A
+
+	  Description: Saves accounts currently in accountMap to accounts.ser
+	*/
 	public void saveAccounts() throws IOException {
 		ObjectOutputStream out = null; 
 		try {
