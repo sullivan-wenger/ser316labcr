@@ -1,6 +1,10 @@
 package banking.primitive.core;
 
-
+/**
+	Class: AccountServerFactory
+	
+	Description: Deals with the Account Server. Contains methods to look up current ServerSolution instance.
+*/
 public class AccountServerFactory {
 
 	protected AccountServerFactory() {
