@@ -1,3 +1,11 @@
+/*
+	File: Checking.java	
+	Author:	Revised by Matthew Corless and Sullivan Wenger
+	Date: 2/19/2017	
+	
+	Description: Checking extends the Account Class. It is used for Accounts with type "Checking". Checking.java 
+	implements the classes from the abstract class Account.
+*/
 package banking.primitive.core;
 
 public class Checking extends Account {
