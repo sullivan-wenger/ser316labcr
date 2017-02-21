@@ -1,3 +1,11 @@
+/**
+* File: Savings.java
+* @author Edited by Sullivan Wenger and Matthew Corless
+* @date 2/20/2017
+* 
+* Description: Implementation of one type of bank account: Savings
+*/
+
 package banking.primitive.core;
 
 /**
