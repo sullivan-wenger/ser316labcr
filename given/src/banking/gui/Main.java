@@ -1,3 +1,10 @@
+/*
+  File:	 Main.java
+  Author: Revised by Matthew Corless and Sullivan Wenger.
+  Date:	2/20/2017
+  
+  Description: Contains the main method for the Banking Project.
+*/
 package banking.gui;
 
 import javax.swing.JFrame;
