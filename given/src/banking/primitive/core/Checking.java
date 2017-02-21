@@ -10,27 +10,37 @@ public class Checking extends Account {
 	}
 
     /**
-    * Constructor with name and default value 0
+    * Method: createChecking
     *
-    *@param name the name on the checking account
+    * @param name the desired name on the checking account
+    * @return the created checking account
+    * 
+    * Description: Create a checking account with a name and default balance of 0
     */
     public static Checking createChecking(String name) {
         return new Checking(name);
     }
 
 	/**
-	* Constructor that takes a name and initial balance
+	* Method: Checking
 	*
 	* @param name the name on the account
 	*	balance the initial balance of the account
+	* @return N/A
+	* 
+	* Description: Create a checking account with a name and initial balance
 	*/
 	public Checking(String name, float balance) {
 		super(name, balance);
 	}
 
 	/**
-	 * A deposit may be made unless the Checking account is closed
+	 * Method: deposit
+	 * 
 	 * @param float is the deposit amount
+	 * @return true if successful, false otherwise
+	 * 
+	 * Description: A deposit may be made unless the Checking account is closed or balance is negative
 	 */
 	public boolean deposit(float amount) {
 		if (getState() != State.CLOSED && amount > 0.0f) {
@@ -44,8 +54,14 @@ public class Checking extends Account {
 	}
 
 	/**
-	 * Withdrawal. After 10 withdrawals a fee of $2 is charged per transaction You may 
-	 * continue to withdraw an overdrawn account until the balance is below -$100
+	 * Method: withdraw
+	 * 
+	 * @param how much to withdraw
+	 * @return true if withdrawal is successful, false otherwise
+	 * 
+	 * Description: 
+	 * 	Withdrawal. After 10 withdrawals a fee of $2 is charged per transaction You may 
+	 * 	continue to withdraw an overdrawn account until the balance is below -$100
 	 */
 	public boolean withdraw(float amount) {
 		if (amount > 0.0f) {		
@@ -65,16 +81,24 @@ public class Checking extends Account {
 	}
 
 	/**
-	* Tells which type of account
-	* The analogous methods on savings returns "Savings"
+	* Method: getType
 	*
-	*@return the string "Checking"
+	* @param N/A
+	* @return the string "Checking"
+	*
+	* Description: 
+	* 	Tells which type of account
+	* 	The analogous methods on savings returns "Savings"
 	*/
 	public String getType() { return "Checking"; }
 	
 	/**
-	* A human comprehensible representation of the account.
-	* @return a string that fits the regex /Checking: .*: \d+\.\d+/
+	* Method: toString
+	* 
+	* @param N/A
+	* @return a string form of the account, fits the regex /Checking: .*: \d+\.\d+/
+	* 
+	* Description: A human comprehensible representation of the account.
 	*/
 	public String toString() {
 		return "Checking: " + getName() + ": " + getBalance();
