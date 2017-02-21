@@ -8,6 +8,11 @@
 */
 package banking.primitive.core;
 
+/**
+* Class: Checking
+* 
+* Description: Implementation of checking account.
+*/
 public class Checking extends Account {
 	
 	/**
