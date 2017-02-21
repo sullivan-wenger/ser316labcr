@@ -1,3 +1,11 @@
+/*
+	File: Checking.java	
+	Author:	Revised by Matthew Corless and Sullivan Wenger
+	Date: 2/19/2017	
+	
+	Description: Checking extends the Account Class. It is used for Accounts with type "Checking". Checking.java 
+	implements the classes from the abstract class Account.
+*/
 package banking.primitive.core;
 
 public class Checking extends Account {
@@ -9,9 +17,9 @@ public class Checking extends Account {
 		super(name);
 	}
 
-    public static Checking createChecking(String name) {
-        return new Checking(name);
-    }
+        public static Checking createChecking(String name) {
+            return new Checking(name);
+        }
 
 	public Checking(String name, float balance) {
 		super(name, balance);
@@ -42,8 +50,9 @@ public class Checking extends Account {
 			if (getState() == State.OPEN || (getState() == State.OVERDRAWN && balance > -100.0f)) {
 				balance = balance - amount;
 				numWithdraws++;
-				if (numWithdraws > 10)
+				if (numWithdraws > 10) {
 					balance = balance - 2.0f;
+				}
 				if (balance < 0.0f) {
 					setState(State.OVERDRAWN);
 				}
@@ -53,7 +62,9 @@ public class Checking extends Account {
 		return false;
 	}
 
-	public String getType() { return "Checking"; }
+	public String getType() {
+		return "Checking";
+	}
 	
 	public String toString() {
 		return "Checking: " + getName() + ": " + getBalance();
