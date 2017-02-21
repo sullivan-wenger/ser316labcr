@@ -1,15 +1,6 @@
 package banking.primitive.core;
 
 public abstract class Account implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
-
-    protected enum State {
-        OPEN, CLOSED, OVERDRAWN
-    };
-
-    protected float balance = 0.0F;
-    protected String name;
-    private State state;
 
     protected Account(String n) {
         name = n;
@@ -44,7 +35,20 @@ public abstract class Account implements java.io.Serializable {
     public final float getBalance() {
         return balance;
     }
-
+    
+    /**
+    * Method: toString
+    * 
+    * @param N/A
+    * @return string form of the account, matches the regex /Account .* has \$\d+\.\d+and is (OPEN|CLOSED|OVERDRAWN)/
+    * 
+    * Description: Describes the account in a human comprehensible way.
+    */
+    public String toString() {
+        return "Account " + name + " has $" + balance + "and is " + getState()
+                + "\n";
+    }
+    
     /**
      * Method: deposit
      * 
@@ -88,17 +92,15 @@ public abstract class Account implements java.io.Serializable {
     protected final void setState(State s) {
         state = s;
     }
-    
-    /**
-    * Method: toString
-    * 
-    * @param N/A
-    * @return a string that matches the regex /Account .* has \$\d+\.\d+and is (OPEN|CLOSED|OVERDRAWN)/
-    * 
-    * Description: Describes the account in a human comprehensible way.
-    */
-    public String toString() {
-        return "Account " + name + " has $" + balance + "and is " + getState()
-                + "\n";
-    }
+
+    private static final long serialVersionUID = 1L;
+
+    private enum State {
+        OPEN, CLOSED, OVERDRAWN
+    };
+
+    private float balance = 0.0F;
+    private String name;
+    private State state;
+
 }
