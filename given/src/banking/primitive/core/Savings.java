@@ -1,5 +1,11 @@
 package banking.primitive.core;
 
+/**
+	Class: Savings.java
+	
+	Description: Extends Account Class. Implements methods from the abstract class Account.java. Savings.java
+	should deal with all accounts that are of type "Savings".
+*/
 public class Savings extends Account {
 	public Savings(String name) {
 		super(name);
