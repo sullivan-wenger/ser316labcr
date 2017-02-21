@@ -11,22 +11,31 @@ import java.awt.Container;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+	Class: MainFrame.java
+	
+	Description: Creates and handles GUI for Banking Project.
+*/
 @SuppressWarnings("serial")
 class MainFrame extends JFrame {
-	AccountServer	myServer;
-	Properties		props;
-	JLabel			typeLabel;
-	JLabel			nameLabel;
-	JLabel			balanceLabel;
-	JComboBox		typeOptions;
-	JTextField		nameField;
-	JTextField		balanceField;
-	JButton 		depositButton;
-	JButton 		withdrawButton;
-	JButton			newAccountButton;
-	JButton			displayAccountsButton;
-	JButton			displayODAccountsButton;
 
+	/**
+	  Method: Constructor for MainFrame.java
+	  Inputs: propertyFile: string of file used in command line argument.
+	  Returns: N/A
+
+	  Description: Main frame creates the GUI portion of the project. The initial server is created with
+	  the propertyFile in the command line argument.
+	*/
+
+	/**
+	  Method: Constructor for MainFrame.java
+	  Inputs: propertyFile: string of file used in command line argument.
+	  Returns: N/A
+
+	  Description: Main frame creates the GUI portion of the project. The initial server is created with
+	  the propertyFile in the command line argument.
+	*/
 	public MainFrame(String propertyFile) throws IOException {
 
 		//** initialize myServer
@@ -106,7 +115,12 @@ class MainFrame extends JFrame {
 		
 		setSize(400, 250);
 	}
-
+	
+	/**
+	  Class: DisplayHandler
+	  
+	  Description: Handles the Display for the Banking Project.
+	*/
 	class DisplayHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			List<Account> accounts = null;
@@ -126,7 +140,11 @@ class MainFrame extends JFrame {
 		}
 	}
 
-	// Complete a handler for new account button
+	/**
+	  Class: NewAccountHandler	
+	  
+	  Description: Handler for a new account button.
+	*/
 	class NewAccountHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			String type = typeOptions.getSelectedItem().toString();
@@ -141,7 +159,11 @@ class MainFrame extends JFrame {
 		}
 	}
 	
-	// Complete a handler for new account button
+	/**
+	  Class: SaveAccountHandler	
+	  
+	  Description: Handler for new account button
+	*/
 	class SaveAccountsHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			try {
@@ -152,8 +174,12 @@ class MainFrame extends JFrame {
 			}
 		}
 	}
-
-	// Complete a handler for deposit button
+	
+	/**
+	  Class: SaveAccountHandler	
+	  
+	  Description: Handler for deposit button
+	*/
 	class DepositHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			String name = nameField.getText();
@@ -166,7 +192,12 @@ class MainFrame extends JFrame {
 			}		
 		}
 	}
-	// Complete a handler for deposit button
+
+	/**
+	  Class: SaveAccountHandler	
+	  
+	  Description: Handler for succussful and unsuccessful withdraws.
+	*/
 	class WithdrawHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			String name = nameField.getText();
@@ -180,13 +211,29 @@ class MainFrame extends JFrame {
 		}
 	}
 	
-	//** Complete a handler for the Frame that terminates 
-	//** (System.exit(1)) on windowClosing event
-
+	/**
+	  Class: SaveAccountHandler	
+	  
+	  Description: Handler for the Frame. Terminates program when GUI is closed.
+	*/
 	static class FrameHandler extends WindowAdapter {
 		public void windowClosing(WindowEvent e) {
 
 			System.exit(0);
 		}
 	}
+	
+	private	AccountServer	myServer;
+	private	Properties		props;
+	private	JLabel			typeLabel;
+	private	JLabel			nameLabel;
+	private	JLabel			balanceLabel;
+	private	JComboBox		typeOptions;
+	private	JTextField		nameField;
+	private	JTextField		balanceField;
+	private	JButton 		depositButton;
+	private	JButton 		withdrawButton;
+	private	JButton			newAccountButton;
+	private	JButton			displayAccountsButton;
+	private	JButton			displayODAccountsButton;
 }
