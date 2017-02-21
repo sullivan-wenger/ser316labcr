@@ -25,7 +25,19 @@ public abstract class Account implements java.io.Serializable {
     public final float getBalance() {
         return balance;
     }
-
+    
+    /**
+	    Method: toString
+	    Inputs: none
+	    Returns: String form of Account.
+	
+	    Description: Returns a string form of the Account name, balance, and state.
+    */
+    public String toString() {
+        return "Account " + name + " has $" + balance + "and is " + getState()
+                + "\n";
+    }
+    
     /**
      * Adds money to an account. May not be done if the account is CLOSED
      * 
@@ -60,18 +72,6 @@ public abstract class Account implements java.io.Serializable {
         state = s;
     }
 
-    /**
-	    Method: toString
-	    Inputs: none
-	    Returns: String form of Account.
-	
-	    Description: Returns a string form of the Account name, balance, and state.
-  */
-    public String toString() {
-        return "Account " + name + " has $" + balance + "and is " + getState()
-                + "\n";
-    }
-    
     private static final long serialVersionUID = 1L;
 
     private enum State {
@@ -81,4 +81,5 @@ public abstract class Account implements java.io.Serializable {
     private float balance = 0.0F;
     private String name;
     private State state;
+
 }
