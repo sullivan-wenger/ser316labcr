@@ -1,5 +1,11 @@
 package banking.primitive.core;
-
+/*
+	File: AccountServer.java	
+	Author:	Revised by Matthew Corless and Sullivan Wenger
+	Date: 2/19/2017	
+	
+	Description: AccountServer is an interface for account servers. It is implemented by ServerSolution.java
+*/
 import java.io.IOException;
 import java.util.List;
 
