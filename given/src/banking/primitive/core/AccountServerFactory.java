@@ -14,7 +14,14 @@ public class AccountServerFactory {
 
 		return singleton;
 	}
+	
+	/**
+	  Method: lookup
+	  Inputs: none
+	  Returns: The AccountServer from ServerSolution
 
+	  Description: Creates a new instance of ServerSolution and returns it.
+	*/
 	public AccountServer lookup() {
 		return new ServerSolution();
 	}
