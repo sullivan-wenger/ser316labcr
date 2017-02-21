@@ -1,6 +1,11 @@
 /**
-* The class of all bank accounts.
-* Can be checking or savings.
+* File: Account.java
+* @author Edited by Matthew Corless and Sullivan Wenger
+* @date 2/20/2017
+* 
+* Description: 
+*   The class of all bank accounts.
+*   Can be checking or savings.
 */
 
 package banking.primitive.core;
