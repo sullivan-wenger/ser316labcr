@@ -1,3 +1,11 @@
+/**
+* File: MainFrame.java
+* @author Edited by Sullivan Wenger and Matthew Corless
+* @date 2/20/2017
+* 
+* Descrption: Creates a nice UI from the primitive.core side of the class.
+*/
+
 package banking.gui;
 
 import banking.primitive.core.Account;
